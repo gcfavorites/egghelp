@@ -1,4 +1,4 @@
-#labels tcs,tcl,системные
+#labels tcs,tcl,системные,zip
 = Название =
 tcs.tcl
 
@@ -12,12 +12,11 @@ Total Control Script
 
 
 = Ссылка =
-http://code.google.com/p/egghelp/source/browse/trunk/tcs.tcl
+http://code.google.com/p/egghelp/source/browse/trunk/tcs.zip
 
 == Прямая ссылка ==
-http://egghelp.googlecode.com/svn/trunk/tcs.tcl
+http://egghelp.googlecode.com/svn/trunk/tcs.zip
 
 
 = Источник =
 http://www.egghelp.ru/download.php?id=78
-
