@@ -1,9 +1,18 @@
 #labels acro,tcl
 = Название =
-Аббревиатуры & Acronyms
+acro.tcl
+
+
+= Описание =
+  Аббревиатуры & Acronyms
+
 
 = Ссылка =
-http://code.google.com/p/egghelp/source/browse/trunk/acro.tcl
+http://code.google.com/p/egghelp/source/browse/trunk/acro.zip
 
 == Прямая ссылка ==
-http://egghelp.googlecode.com/svn/trunk/acro.tcl
+http://egghelp.googlecode.com/svn/trunk/acro.zip
+
+
+= Источник =
+http://www.egghelp.ru/download.php?id=10
