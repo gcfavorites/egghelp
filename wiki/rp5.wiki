@@ -1,0 +1,19 @@
+#labels rp5,tcl,информационные
+= Название =
+rp5_102.tcl
+
+
+= Описание =
+# rp5 - погода (прогноз погоды с сайта rp5.ru)
+
+
+= Ссылка =
+http://code.google.com/p/egghelp/source/browse/trunk/rp5_102.tcl
+
+== Прямая ссылка ==
+http://egghelp.googlecode.com/svn/trunk/rp5_102.tcl
+
+
+= Источник =
+http://www.egghelp.ru/download.php?id=348
+
