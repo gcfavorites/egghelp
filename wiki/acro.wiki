@@ -8,10 +8,10 @@ acro.tcl
 
 
 = Ссылка =
-http://code.google.com/p/egghelp/source/browse/trunk/acro.zip
+http://code.google.com/p/egghelp/source/browse/trunk/acro.tcl
 
 == Прямая ссылка ==
-http://egghelp.googlecode.com/svn/trunk/acro.zip
+http://egghelp.googlecode.com/svn/trunk/acro.tcl
 
 
 = Источник =
