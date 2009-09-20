@@ -5,7 +5,7 @@
  * [http://code.google.com/p/egghelp/w/list?q=label:%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D0%BD%D1%8B%D0%B5 Системные]
 
 
-[http://code.google.com/p/egghelp/w/list?q=label:tcl Все вместе].
+[http://code.google.com/p/egghelp/w/list Все вместе].
 
 
 
