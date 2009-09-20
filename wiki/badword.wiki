@@ -1,0 +1,23 @@
+#labels badword,tcl,системные
+= Название =
+badword.tcl
+
+
+= Автор =
+^Неизвестен^
+
+
+= Описание =
+Скрипт, наказывающий за мат на канале.
+
+
+= Ссылка =
+http://code.google.com/p/egghelp/source/browse/trunk/badword.tcl
+
+== Прямая ссылка ==
+http://egghelp.googlecode.com/svn/trunk/badword.tcl
+
+
+= Источник =
+http://www.egghelp.ru/download.php?id=65
+

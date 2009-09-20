@@ -1,0 +1,23 @@
+#labels m3s1,tcl,системные
+= Название =
+m3s_2.0.tcl
+
+
+= Автор =
+^Неизвестен^
+
+
+= Описание =
+Управление каналом с помощью публичных команд.
+
+
+= Ссылка =
+http://code.google.com/p/egghelp/source/browse/trunk/m3s_2.0.tcl
+
+== Прямая ссылка ==
+http://egghelp.googlecode.com/svn/trunk/m3s_2.0.tcl
+
+
+= Источник =
+http://www.egghelp.ru/download.php?id=93
+

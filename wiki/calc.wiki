@@ -1,0 +1,23 @@
+#labels calc,tcl,системные
+= Название =
+calc.tcl
+
+
+= Автор =
+^Неизвестен^
+
+
+= Описание =
+Система хранения записок на боте с поддержкой их линковки. База ведется отдельно для каждого канала.
+
+
+= Ссылка =
+http://code.google.com/p/egghelp/source/browse/trunk/calc.tcl
+
+== Прямая ссылка ==
+http://egghelp.googlecode.com/svn/trunk/calc.tcl
+
+
+= Источник =
+http://www.egghelp.ru/download.php?id=67
+

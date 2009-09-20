@@ -1,0 +1,23 @@
+#labels allprotection4,tcl,системные
+= Название =
+allprotection4.6b9
+
+
+= Автор =
+^Неизвестен^
+
+
+= Описание =
+Защита канала и бота от всех видов флуда в том числе и от botnet атак.
+
+
+= Ссылка =
+http://code.google.com/p/egghelp/source/browse/trunk/allprotection4.6b9
+
+== Прямая ссылка ==
+http://egghelp.googlecode.com/svn/trunk/allprotection4.6b9
+
+
+= Источник =
+http://www.egghelp.ru/download.php?id=378
+
