@@ -1,6 +1,10 @@
-#labels housenum,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 housenum.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/housenum.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=363
+
 

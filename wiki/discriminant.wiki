@@ -1,6 +1,10 @@
-#labels discriminant,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 discriminant.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/discriminant.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=44
+
 

@@ -1,6 +1,10 @@
-#labels math,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 math.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/math.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=94
+
 

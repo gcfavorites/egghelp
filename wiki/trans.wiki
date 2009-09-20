@@ -1,6 +1,10 @@
-#labels trans,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 trans.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/trans.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=277
+
 

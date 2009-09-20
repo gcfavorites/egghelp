@@ -1,6 +1,10 @@
-#labels bash.org.ru,tcl
+#labels netstat,tcl,информационные
 = Название =
 bash.org.ru.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

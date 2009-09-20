@@ -1,6 +1,10 @@
-#labels kamni,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 kamni.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/kamni.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=48
+
 

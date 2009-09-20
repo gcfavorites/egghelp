@@ -1,6 +1,10 @@
-#labels ustihi,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 ustihi1.0.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/ustihi1.0.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=36
+
 

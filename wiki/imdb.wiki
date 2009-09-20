@@ -1,6 +1,10 @@
-#labels imdb,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 imdb.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/imdb.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=172
+
 

@@ -1,6 +1,10 @@
-#labels horo,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 horo.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/horo.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=14
+
 

@@ -1,6 +1,10 @@
-#labels price,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 price.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/price.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=27
+
 

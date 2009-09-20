@@ -1,6 +1,10 @@
-#labels channews,tcl
+#labels netstat,tcl,информационные
 = Название =
 channews.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

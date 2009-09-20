@@ -1,6 +1,10 @@
-#labels advert,tcl
+#labels netstat,tcl,информационные
 = Название =
 advert.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

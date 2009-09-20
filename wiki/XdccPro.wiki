@@ -1,6 +1,10 @@
-#labels XdccPro,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 xdcc_pro.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/xdcc_pro.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=191
+
 

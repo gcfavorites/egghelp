@@ -1,6 +1,10 @@
-#labels servinfo,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 servinfo.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/servinfo.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=110
+
 

@@ -1,6 +1,10 @@
-#labels mp3spy,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 mp3spy.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/mp3spy.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=22
+
 

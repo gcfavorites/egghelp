@@ -1,6 +1,10 @@
-#labels Kino,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 kino_110.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/kino_110.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=382
+
 

@@ -1,6 +1,10 @@
-#labels ontime,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 ontime.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/ontime.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=317
+
 

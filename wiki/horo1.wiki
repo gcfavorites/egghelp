@@ -1,6 +1,10 @@
-#labels horo1,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 horo151.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/horo151.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=315
+
 

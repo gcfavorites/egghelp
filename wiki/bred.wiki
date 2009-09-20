@@ -1,6 +1,10 @@
-#labels bred,tcl
+#labels netstat,tcl,информационные
 = Название =
 bred.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

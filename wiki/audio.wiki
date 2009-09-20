@@ -1,6 +1,10 @@
-#labels audio,tcl
+#labels netstat,tcl,информационные
 = Название =
 audio.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

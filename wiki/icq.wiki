@@ -1,6 +1,10 @@
-#labels icq,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 icq.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/icq.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=318
+
 

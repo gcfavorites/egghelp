@@ -1,6 +1,10 @@
-#labels anekd121,tcl
+#labels netstat,tcl,информационные
 = Название =
 anekd121.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

@@ -1,6 +1,10 @@
-#labels phpbb2egg,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 phpbb2egg.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/phpbb2egg.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=99
+
 

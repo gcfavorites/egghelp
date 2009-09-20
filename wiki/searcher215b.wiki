@@ -1,6 +1,10 @@
-#labels searcher215b,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 searcher215b.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/searcher215b.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=335
+
 

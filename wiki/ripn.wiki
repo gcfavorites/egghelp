@@ -1,6 +1,10 @@
-#labels ripn,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 ripn.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/ripn.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=105
+
 

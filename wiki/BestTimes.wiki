@@ -1,6 +1,10 @@
-#labels best.times,tcl
+#labels netstat,tcl,информационные
 = Название =
 best.times.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

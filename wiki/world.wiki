@@ -1,6 +1,10 @@
-#labels world,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 world.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/world.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=175
+
 

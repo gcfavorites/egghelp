@@ -1,6 +1,10 @@
-#labels birthsday,tcl
+#labels netstat,tcl,информационные
 = Название =
 birthsday.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

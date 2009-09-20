@@ -1,6 +1,10 @@
-#labels nip,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 nip.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/nip.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=237
+
 

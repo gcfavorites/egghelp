@@ -1,6 +1,10 @@
-#labels mp3a,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 mp3a.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/mp3a.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=21
+
 

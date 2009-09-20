@@ -1,6 +1,10 @@
-#labels aigen,tcl,bred
+#labels netstat,tcl,информационные
 = Название =
 aigen.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

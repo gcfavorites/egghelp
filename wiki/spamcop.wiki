@@ -1,6 +1,10 @@
-#labels spamcop,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 spamcop.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/spamcop.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=35
+
 

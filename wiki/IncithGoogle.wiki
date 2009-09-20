@@ -1,6 +1,10 @@
-#labels IncithGoogle,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 incith-google.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/incith-google.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=185
+
 

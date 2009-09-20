@@ -1,6 +1,10 @@
-#labels KLast,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 k-last.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/k-last.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=313
+
 

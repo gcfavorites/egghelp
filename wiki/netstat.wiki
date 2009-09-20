@@ -3,6 +3,10 @@
 netstat.tcl
 
 
+= Автор =
+^Неизвестен^
+
+
 = Описание =
 Скрипт выводит в канал результат команды /lusers
 
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/netstat.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=385
+
 

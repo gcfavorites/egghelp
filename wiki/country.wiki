@@ -1,6 +1,10 @@
-#labels country,tcl,информационные
+#labels netstat,tcl,информационные
 = Название =
 country.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
@@ -16,4 +20,5 @@ http://egghelp.googlecode.com/svn/trunk/country.tcl
 
 = Источник =
 http://www.egghelp.ru/download.php?id=71
+
 

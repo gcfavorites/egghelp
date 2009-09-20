@@ -1,6 +1,10 @@
-#labels afisha,tcl
+#labels netstat,tcl,информационные
 = Название =
 afisha.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =

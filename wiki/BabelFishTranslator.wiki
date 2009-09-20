@@ -1,6 +1,10 @@
-#labels BabelFishTranslator,tcl
+#labels netstat,tcl,информационные
 = Название =
 BabelFishTranslator.tcl
+
+
+= Автор =
+^Неизвестен^
 
 
 = Описание =
