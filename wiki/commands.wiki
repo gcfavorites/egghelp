@@ -1,4 +1,4 @@
-#labels commands,tcl,системные
+#labels commands,tcl,системные,zip
 = Название =
 commands.tcl
 
@@ -12,12 +12,11 @@ commands.tcl
 
 
 = Ссылка =
-http://code.google.com/p/egghelp/source/browse/trunk/commands.tcl
+http://code.google.com/p/egghelp/source/browse/trunk/commands.zip
 
 == Прямая ссылка ==
-http://egghelp.googlecode.com/svn/trunk/commands.tcl
+http://egghelp.googlecode.com/svn/trunk/commands.zip
 
 
 = Источник =
 http://www.egghelp.ru/download.php?id=70
-
