@@ -1,4 +1,4 @@
-#labels calc,tcl,системные
+#labels calc,tcl,системные,zip
 = Название =
 calc.tcl
 
@@ -12,12 +12,11 @@ calc.tcl
 
 
 = Ссылка =
-http://code.google.com/p/egghelp/source/browse/trunk/calc.tcl
+http://code.google.com/p/egghelp/source/browse/trunk/calc.zip
 
 == Прямая ссылка ==
-http://egghelp.googlecode.com/svn/trunk/calc.tcl
+http://egghelp.googlecode.com/svn/trunk/calc.zip
 
 
 = Источник =
 http://www.egghelp.ru/download.php?id=67
-
