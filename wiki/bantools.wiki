@@ -1,4 +1,4 @@
-#labels bantools,tcl,системные
+#labels bantools,tcl,системные,zip
 = Название =
 bantools.tcl
 
@@ -12,12 +12,11 @@ bantools.tcl
 
 
 = Ссылка =
-http://code.google.com/p/egghelp/source/browse/trunk/bantools.tcl
+http://code.google.com/p/egghelp/source/browse/trunk/bantools.zip
 
 == Прямая ссылка ==
-http://egghelp.googlecode.com/svn/trunk/bantools.tcl
+http://egghelp.googlecode.com/svn/trunk/bantools.zip
 
 
 = Источник =
 http://www.egghelp.ru/download.php?id=66
-
