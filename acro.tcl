@@ -8,6 +8,8 @@
 #				—крипт переписан с использованием namespace
 #		v1.6	ќптимизированы процедуры кодировани€ url
 #				јвтоматический выбор сайта в зависимости от €зыка запроса
+#		v1.7	ѕереписана процедура кодировани€ url
+#				»справлен поиск русско€зычных аббревиатур
 
 namespace eval acro {
 
@@ -28,7 +30,7 @@ setudef flag $acronymflag
 variable useragent "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.1) Gecko/20061204 Firefox/2.0.0.1"
 variable acronymurl "http://acronyms.thefreedictionary.com/"
 variable useragentr "Mozilla/4.0 (compatible; MSIE 4.01; Windows CE; PPC; 240x320)"	
-variable acronymurlr "http://pda.sokr.ru/?where=abbr&exact=on&text="
+variable acronymurlr "http://pda.sokr.ru/"
 
 bind pub -|- $acronymcmd ::acro::acronym_pub
 bind pub -|- $acronymcmdr ::acro::acronym_pub
@@ -47,20 +49,17 @@ variable apriv
 	acron $nick $host $hand $nick $arg
 }
 
-proc urlenc {strr} {
-	global sp_version
-	set url ""
- 	if {![info exists sp_version]} {set aenc "encoding convertfrom utf-8"} {set aenc "encoding convertto cp1251"}
-	foreach byte [split [eval $aenc $strr] ""] {
-		scan $byte %c i
-			if {[string match {[%<>"]} $byte] || $i < 65 || $i > 122} {
-				append url [format %%%02X $i]
-			} else {
-				append url $byte
-			}
-      }
-    return [string map {%3A : %2D - %2E . %30 0 %31 1 %32 2 %33 3 %34 4 %35 5 %36 6 %37 7 %38 8 %39 9 \[ %5B \\ %5C \] %5D \^ %5E \_ %5F \` %60} $url]
+proc urlenc {content {codepage {}} {type {1}}} {
+		if {$codepage ne ""} {set content [encoding convertto $codepage $content]}
+		if {$type} {
+			set str "" ; foreach byte [split $content ""] {scan $byte %c i ; if {[string match {[%<>"]} $byte] || $i < 65 || $i > 122} {append str [format %%%02X $i]} {append str $byte}}
+			return [string map {%3A : %2D - %2E . %30 0 %31 1 %32 2 %33 3 %34 4 %35 5 %36 6 %37 7 %38 8 %39 9 \[ %5B \\ %5C \] %5D \^ %5E \_ %5F \` %60} $str]
+		} {
+			set str "" ; foreach byte [split $content ""] {scan $byte %c i ; append str "[format %02X $i] "}
+			return $str
+		}
 }
+
 
 proc sconv {strr} {
 	set smaps {
@@ -104,6 +103,7 @@ proc chkrus {strr} {
 }
 
 proc scount {subs string} {regsub -all $subs $string $subs string}
+proc sspace {strr} {return [string trim [regsub -all {[\t\s]+} $strr { }]]}
 
 proc acron {nick host hand chan arg}  {
 variable useragent 
@@ -128,15 +128,14 @@ variable maxdef
 			set mpage 0
 		}
 		if {[chkrus $arg]} {
-  			set url "$acronymurlr[urlenc $arg]"
+  			set url "$acronymurlr[urlenc $arg utf-8]/"
  			::http::config -useragent $useragentr
 			set token [::http::geturl "$url"]
 			if {[::http::status $token] == "ok"} {
-    			regexp "</form></div>(.+?)</body></html>" [::http::data $token] -> res
+    			regexp "</form>(.+?)</body>" [encoding convertfrom "utf-8" [::http::data $token]] -> res
 				regsub -all -- "\n|\r|\t" $res "" res
-				regexp -all -nocase -- {<small>.*?<b>(.*?)</b></small><br /><br />} $res -> numresults
-    			regexp -all -- "<br /><br />(.*?)$" $res -> res
-				regsub -all -- "</div>" $res "\n" res
+				regexp -all -nocase -- {<p class="search_stat">(.*?)</p>} $res -> numresults ; regexp -- {(\d+)} [string map {"&#133;" ""} $numresults] -> numresults
+				regsub -all -- "</td>" $res "\n" res
     			if { $numresults != "0"  } {
     				set counter 1
 						if {$numresults == 1} {
@@ -146,13 +145,13 @@ variable maxdef
 	   					} else { puthelp "privmsg $chan :\037неверный параметр\037" }
 
 					foreach rline [split $res \n] {
-						if {[regexp -nocase -- {<b>(.*?)</b>.*?<div\ class=\"what\">(.*?)$} $rline -> rname rdesc]} {
-							regsub -all -- "<br />" $rdesc { } rdesc
-							regsub -all -- "<i>" $rdesc "\00314" rdesc
-							regsub -all -- "</i>" $rdesc "\003" rdesc
+						if {[regexp -nocase -- {<p class="value">(.*?)</p>.*?<p class="comment">(.*?)</p>.*?<p class="dates">(.*?)</p>(.*?)$} $rline -> rname rdesc rdate rdop]} {
+							if {[regexp -nocase -- {<p class="tag_list">(.*?)</p>} $rdop -> rmisc]} {regsub -all -- "<.*?>" $rmisc { } rmisc} {set rmisc ""}		
+							regsub -all -- "<br>" $rname { / } rname
+							regsub -all -- "<.*?>" $rname { } rname
 							regsub -all -- "<.*?>" $rdesc { } rdesc
 
-							set line "$rname Ч [sconv $rdesc]"
+							set line "$rname Ч [sconv $rdesc] \00314[sspace $rmisc]\003 [sspace $rdate]"
 							if {( $counter >= [expr $maxdef + ($mpage * $maxdef)]) && ($numresults > [expr $maxdef + ($mpage * $maxdef)])} { 
 								set line "$line  \00304($acronymcmdr \+[ expr $mpage + 1 ] $arg)\003 - следующие $maxdef результатов" 
 							}
@@ -229,4 +228,4 @@ variable acronymcmd
 }
 
 }
-putlog "::acro v01.6 by anaesthesia loaded."
+putlog "::acro v01.7 by anaesthesia loaded."

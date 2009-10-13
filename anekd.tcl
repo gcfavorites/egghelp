@@ -223,9 +223,10 @@ foreach p [array names anekd *] { catch {unset anekd ($p) } }
 		if {[queue_add "$fetchurl$aurl" $id "[namespace current]::anekd:parser" [list $unick $uhost $uchan $str]]} {
 			variable err_ok ; if {$err_ok ne ""} {lput puthelp "$err_ok." $prefix}
 		} {
-			variable err_fail ; if {$err_fail ne ""} {lput puthelp $err_fail $prefix} ; if {$ustr eq "time"} {[namespace current]::time:anekd}
+			variable err_fail ; if {$err_fail ne ""} {lput puthelp $err_fail $prefix}
 		}
 
+	if {$ustr eq "time"} {[namespace current]::time:anekd}
 	return
 	}
 
@@ -272,7 +273,6 @@ foreach p [array names anekd *] { catch {unset anekd ($p) } }
 		queue_add "$fetchurl$aurl" $idr "[namespace current]::anekd:parser" [list $unick $uhost $uchan {}]
 	}
 
-	if {$ustr eq "time"} {[namespace current]::time:anekd}
 	if {$debug} {putlog "time:anekd :: parser :: $ustr"}
 	return
 	}	

@@ -321,7 +321,7 @@ namespace eval horoscope {
 		foreach {unick uhost uhandle uchan ustr} $lextra {break}
 
 		if {$lerrid ne {ok}} {lput putserv [subst -nocommands $err_fail] [subst -nocommands $errsend] ; return}
-		if {[info exists ::sp_version]} {set str [encoding convertfrom cp1251 $lbody]} {set str $lbody}
+		if {[info exists ::sp_version]} {if {$htype} {set str [encoding convertfrom utf-8 $lbody]} {set str [encoding convertfrom cp1251 $lbody]}} {set str $lbody}
 		if {$uchan eq $unick || [channel get $uchan $chflag\q]} {set prefix [subst -nocommands $msgsend]} {set prefix [subst -nocommands $pubsend]}
 
 		if {$htype} {
