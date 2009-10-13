@@ -1,0 +1,849 @@
+[001]
+Format: :Welcome to the Internet Relay Network, <nick>
+Info: Message server sends you when you connect.
+Example: :Welcome to the Internet Relay Network, $nick
+Numeric: 001
+[002]
+Format: :Your host is <server-name>, running version <ircd-version>
+Info: Information line on connect.
+Example: :Your host is euroserv.ru.$network.org, running version $version
+Numeric: 002
+[003]
+Format: :This server was created <date+time>
+Info: Server creation time.
+Example: :This server was created Thu May 1 2003 at 02:05:25 CEST
+Numeric: 003
+[004]
+Format: <server> <version> <usermodes> <channelmodes> [<channelmodes requireing an add-argument>]
+Info: Server information.
+Example: euroserv.ru.$network.org $version dioswkgxXInRh biklmnopstvrDcCu bklov
+Numeric: 004
+[005]
+Format: <protocol|setting> [<protocol|setting> ...] :are available on this server
+Info: Detailed server restrictions, modes ect.
+Example: WHOX WALLCHOPS WALLVOICES USERIP CPRIVMSG CNOTICE SILENCE=15 MODES=6 MAXCHANNELS=20 MAXBANS=45 NICKLEN=15 TOPICLEN=250 AWAYLEN=160 KICKLEN=250 :are supported by this server &amp CHANTYPES=#&amp PREFIX=(ov)@+ CHANMODES=b,k,l,imnpstrDcCu CASEMAPPING=rfc1459 NETWORK=$network :are supported by this server
+Numeric: 005
+[008]
+Format: <snomask numeric> : Server notice mask <hex>
+Info: Returned when setting a server notice mask (mode yournick +s <mask>)
+Example: 9221 : Server notice mask (0x2405)
+Numeric: 008
+[211]
+Format: <connection> <sendq> <sentmsg> <sentbyte> <recdmsg> <recdbyte> :<open>
+Info: A series of these are sent in reply to a STATS l request. (lowercase L). They represent the ports and connections a server has available for users to connect to.
+Example: some.server.$network.org[*.6669] 0 106425518 9240002 20983702 1503812 :3240148
+Numeric: 211
+[212]
+Format: <command> <uses> <bytes>
+Info: A series of these are sent in reply to a STATS m request. They contain statistics on the commands a server supports.
+Example: PRIVMSG 28931 1446042
+Numeric: 212
+[213]
+Format: C <address> * <server> <port> <class>
+Info: A series of these are sent in reply to a STATS c request. A STATS c request lists servers that can and cannot connect to a given server.
+Example: C *@123.456.789.111 * some.server.$network.org 0 50
+Numeric: 213
+[214]
+Format: N <address> * <server> <port> <class>
+Info: A series of these are sent in reply to a STATS c request. A STATS c request lists servers that can and cannot connect to a given server.
+Example: N *@123.456.789.111 * *.server.$network.org 0 10
+Numeric: 214
+[215]
+Format: I <ipmask> * <hostmask> <port> <class>
+Info: A series of these are sent in reply to a STATS i request. A STATS i request (I-lines) lists classes of clients that are allowed to connect to a server.
+Example: I *@123.456.789.* * NOMATCH 0 3
+Numeric: 215
+[216]
+Format: <k|K> <address> * <username> <details>
+Info: A series of these are sent in reply to a STATS k request. A STATS k request (K-lines) lists classes of clients that are not allowed to connect to a server.
+Example: k 123.456.789.* * ~* Temporary K-line 60 min. for Auto-kline, clones (2003/08/02 12.55)
+Numeric: 216
+[217]
+Format: P <port> <??> <??>
+Info: A series of these are sent in reply to a STATS p request on $network. Each line lists a port (other than the default 6667 port) on which clients can connect to the server.
+Example: P 6666 181 0x2000
+Numeric: 217
+[218]
+Format: Y <class> <ping> <freq> <maxconnect> <sendq>
+Info: A series of these are sent in reply to a STATS y request. Each line lists a Y-line, which details a connection class and their allowed privileges.
+Example: Y 100 120 240 1 5000000
+Numeric: 218
+[219]
+Format: <char> :End of /STATS report
+Info: Returned at the end of a STATS request. Different types of STATS requests generate different replies, however this numeric will always be returned last,
+Example: u :End of /STATS report
+Numeric: 219
+[221]
+Format: <mode>
+Info: This is sent when you request to view your usermode using MODE.
+Example: +i
+Numeric: 221
+[223]
+Format: :Server Up <num> days, <time>
+Info: Returned for a STATS u request. The time is in addition to the number of days listed. (the example would mean 37 days and a bit over 9 hours)
+Example: :Server Up 37 days, 9:20:39
+Numeric: 223
+[243]
+Format: <o|O> <mask> <password> <user> <??> <class>
+Info: A series of these are sent in reply to a STATS o request. A STATS o request lists O-lines, which determine which hosts are allowed to become IRC operators.
+Example: O *@works.on.$network.org * $nick 4293328895 1
+Numeric: 243
+[244]
+Format: H <address> * <server> <??> <??>
+Info: A series of these are sent in reply to a STATS h request. A STATS h request lists servers that are treated as hubs and servers that are treated as leaves.
+Example: H * * some.server.$network.org 0 -1
+Numeric: 244
+[247]
+Format: G <address> <timestamp> :<reason>
+Info: A STATS g request lists G-lines, which are bans global to an entire network. Users who match a G-line will be denied access to all servers on the network.
+Example: G lamer@some.isp.com 900964094 :flood bots
+Numeric: 247
+[248]
+Format: U <host> * <??> <??> <??>
+Info: A STATS U request lists U-lines, which give certain hosts special priviliges. These privledges allow the changing of modes on channels without being an op on the channel or even on the channel.
+Example: U some.isp.com * * 0 -1
+Numeric: 248
+[249]
+Format: :<info>
+Info: A series of these are sent in reply to a STATS t or STATS z request, containing various debug and other information and statistics.
+Example: :nick collisions 1879 unknown closes 11383991
+Numeric: 249
+[250]
+Format: :Highest connection count: <total> (<num> clients)
+Info: Returned for a STATS u request. Also returned on some networks during the connection process. These numbers signify the highest count the server has had at any time since it was last rebooted.
+Example: :Highest connection count: 2997 (2996 clients
+Numeric: 250
+[251]
+Format: :There are <user> users and <invis> invisible on <serv> servers
+Info: These numbers are for the entire network, not just one server. Adding the first two numbers together will give you the current total user count on the entire network.
+Example: :There are 5161 users and 33030 invisible on 58 servers
+Numeric: 251
+[252]
+Format: <num> :operator(s) online
+Info: These numbers are for the entire network, not just one server. Note that if a network has no operators online, this will not be sent.
+Example: 40 :operator(s) online
+Numeric: 252
+[253]
+Format: <num> :unknown connection(s)
+Info: The number of unknown connections
+Example: 11 :unknown connection(s)
+Numeric: 253
+[254]
+Format: <num> :channels formed
+Info: The number of channels currently formed
+Example: 160206 :channels formed
+Numeric: 254
+[255]
+Format: :I have <user> clients and <serv> servers
+Info: These numbers are for the current server only. Note that the server count does not include the current server, it is a count of all OTHER servers connected to it.
+Example: :I have 160195 clients and 48 servers
+Numeric: 255
+[256]
+Format: :Administrative info about <server>
+Info: Returned in reply to an ADMIN request.
+Example: :Administrative info about some.server.$network.org
+Numeric: 256
+[257]
+Format: :<info>
+Info: This may contain e-mail, web addresses, nicknames, postal addresses, corporation names, etc. You cannot rely on any specific information being in any single line or even the entire reply as a whole.
+Example: :m00 University - Making you m00 louder in the evenings.
+Numeric: 257
+[258]
+Format: :<info>
+Info: This may contain e-mail, web addresses, nicknames, postal addresses, corporation names, etc. You cannot rely on any specific information being in any single line or even the entire reply as a whole.
+Example: :Santa Claus (BigSanta)
+Numeric: 258
+[259]
+Format: :<info>
+Info: This may contain e-mail, web addresses, nicknames, postal addresses, corporation names, etc. You cannot rely on any specific information being in any single line or even the entire reply as a whole.
+Example: :Email support@$network.org
+Numeric: 259
+[263]
+Format: :Server load is temporarily too heavy. Please wait a while and try again.
+Info: Returned on some networks when the server has too much traffic to send a reply to a command.
+Example: :Server load is temporarily too heavy. Please wait a while and try again.
+Numeric: 263
+[265]
+Format: :Current local users: <curr> Max: <max>
+Info: These numbers are just for the current server. The maximum count signifies the highest count of users the server has had at any time since it was last rebooted.
+Example: :Current local users: 102292 Max: 130017
+Numeric: 265
+[266]
+Format: :Current global users: <curr> Max: <max>
+Info: These numbers are for the entire network.The maximum count signifies the highest count of users that the entire NETWORK has had at any time since the SERVER was last rebooted.
+Example: :Current global users: 21759 Max: 26097
+Numeric: 266
+[271]
+Format: <nick> <mask>
+Info: You can view another user's SILENCE list, but you will only see masks that your current server knows about. Your server will only know about an entry if someone matching that entry sent a message via your server to that person.
+Example: DeafGuy *!*@*.lamer.com
+Numeric: 271
+[272]
+Format: :End of Silence List
+Info: This is returned at the end of a SILENCE list.
+Example: :End of Silence List
+Numeric: 272
+[280]
+Format: <address> <timestamp> <server> <active> :<reason>
+Info: GLINE by itself (or with a mask) lists matching G-lines, which are bans global to an entire network. Server specifies the server where the GLINE was set, and active is '+' for active and '-' for inactive.
+Example: *!*@*.lame.isp 902579316 * + :Do not launch flood-bots onto $network
+Numeric: 280
+[281]
+Format: :End of G-line List
+Info: This is returned at the end of a GLINE list.
+Example: :End of G-line List
+Numeric: 281
+[284]
+Format: none
+Info: none
+Example: none
+Numeric: 284
+[285]
+Format: none
+Info: none
+Example: none
+Numeric: 285
+[286]
+Format: none
+Info: none
+Example: none
+Numeric: 286
+[287]
+Format: none
+Info: none
+Example: none
+Numeric: 287
+[288]
+Format: none
+Info: none
+Example: none
+Numeric: 288
+[289]
+Format: none
+Info: none
+Example: none
+Numeric: 289
+[290]
+Format: none
+Info: none
+Example: none
+Numeric: 290
+[291]
+Format: none
+Info: none
+Example: none
+Numeric: 291
+[301]
+Format: <nick> :<away>
+Info: This is sent to tell you that a given user is away. (set using the AWAY command.) It will be returned, if applicable, for a WHOIS or WHOWAS request, and also if you send a PRIVMSG to a user that is away.
+Example: $nick :Sleeping the day awaaaay..
+Numeric: 301
+[302]
+Format: <userhosts>
+Info: Each reply is formatted as nickname=+userid@host. 'nickname' is the user's nickname, 'userid' is their userid (identd) and 'host' is their host address. + means that they are here (not away), and will be a - (hyphen) if they are away.
+Example: $nick=-$nick@$host
+Numeric: 302
+[303]
+Format: :<nicknames>
+Info: This is sent in reply to an ISON request. The reply contains all nicknames that are on IRC out of the set of nicknames originally requested.
+Example: :$nick cow lamer god
+Numeric: 303
+[305]
+Format: :You are no longer marked as being away
+Info: This is returned when you return from being AWAY. (by setting a blank away reason.)
+Example: :You are no longer marked as being away
+Numeric: 305
+[306]
+Format: :You have been marked as being away
+Info: This is returned when you set yourself AWAY.
+Example: :You have been marked as being away
+Numeric: 306
+[311]
+Format: <nick> <username> <hostname> * :<info>
+Info: This is sent as part of a reply to a WHOIS request. It contains the user's username and hostname as well as their &quotreal name&quot information as given by them. (this could be anything that the user chooses.)
+Example: $nick $nick if.found.return.to.help.script * :DDB v5 - $chan servicebot by someone
+Numeric: 311
+[312]
+Format: <nick> <server> :<info>
+Info: This is sent as part of a reply to a WHOIS request. It contains the server a user is connected to.
+Example: $nick some.server.at.$network.org :$network server from hell
+Numeric: 312
+[313]
+Format: <nick> :is an IRC Operator
+Info: This is sent as part of a reply to a WHOIS request, if the user is an IRC operator.
+Example: $nick :is an IRC Operator
+Numeric: 313
+[314]
+Format: <nick> <nickname> <address> * :<info>
+Info: This is sent as part of a reply to a WHOWAS request. It contains the user's identd and address as well as their &quotreal name&quot information as given by them.
+Example: $nick $nick if.found.return.to.help.script * :DDB v5 - $chan servicebot by someone
+Numeric: 314
+[315]
+Format: <request> :End of /WHO list.
+Info: This is sent at the end of a WHO request.
+Example: $chan :End of /WHO list.
+Numeric: 315
+[317]
+Format: <nick> <seconds> <signon> :<info>
+Info: This is sent as part of a reply to a WHOIS request. It includes the number of seconds the user is idle as well as when they signed on to IRC. <signon> is in the $ctime format.
+Example: $nick 1234 902430973 :seconds idle, signon time
+Numeric: 317
+[318]
+Format: <request> :End of /WHOIS list.
+Info: This is sent at the end of a WHOIS request.
+Example: $nick :End of /WHOIS list.
+Numeric: 318
+[319]
+Format: <nick> :<channels>
+Info: This is sent as part of a reply to a WHOIS request. It contains the channels a user is on. If the user is opped on a channel, the channel name will be prefixed with a @. Likewise, if a user is voiced on a channel, it will be prefixed with a +.
+Example: $nick :@$chan
+Numeric: 319
+[321]
+Format: Channel :Users Name
+Info: Sent at the beginning of a LIST reply, before the channels are listed.
+Example: Channel :Users Name
+Numeric: 321
+[322]
+Format: <channel> <users> :<topic>
+Info: This is returned for each channel in a LIST reply. The user count includes all users, invisable or otherwise. If no topic is currently set, none will be given, although the colon will still be included.
+Example: $chan 134 :| $network is such a great place to be. | Don't privmsg staff! |
+Numeric: 322
+[323]
+Format: :End of /LIST
+Info: Sent at the end of a LIST reply, after all matching channels are listed.
+Example: :End of /LIST
+Numeric: 323
+[324]
+Format: <channel> <mode>
+Info: This is returned for a MODE request. If the channel has no modes, a single + will be returned. Keys and limits, if present, will be returned in the MODE reply. Keys will only be returned in the mode reply if you are opped on the channel.
+Example: $chan +Ctnul 160
+Numeric: 324
+[329]
+Format: <channel> <time>
+Info: This is returned as part of a MODE request, giving you the time the channel was created. The <time> is in ctime format.
+Example: $chan 884921151
+Numeric: 329
+[330]
+Format: <nick> <auth> :is authed as
+Info: Returns <nick>'s Q auth in a WHOIS request.
+Example: $nick $nick :is authed as
+Numeric: 330
+[331]
+Format: <channel> :No topic is set
+Info: This is returned for a TOPIC request if the channel has no current topic.
+Example: $chan :No topic is set
+Numeric: 331
+[332]
+Format: <channel> :<topic>
+Info: This is returned for a TOPIC request or when you JOIN, if the channel has a topic.
+Example: $chan :| $network is such a great place to be. | Don't privmsg staff! |
+Numeric: 332
+[333]
+Format: <channel> <nickname> <time>
+Info: This is returned for a TOPIC request or when you JOIN, if the channel has a topic. <time> is in ctime format. (Represents time topic was set.)
+Example: $chan Q 902508764
+Numeric: 333
+[338]
+Format: <nick> <username!hostmask> <address> :Actual user@host, Actual IP
+Info: Returns your actual hostname and ip address when doing a WHOIS on yourself.
+Example: $nick $nick@something.else.com 123.457.864.111 :Actual user@host, Actual IP
+Numeric: 338
+[340]
+Format: :<userips>
+Info: Each reply is formatted as nickname=+userid@ip. 'nickname' is the user's nickname, 'userid' is their userid (identd) and 'ip' is their numeric ip. + means that they are here (not away), and will be a - (hyphen) if they are away.
+Example: :$nick=+$nick@123.456.789.111
+Numeric: 340
+[341]
+Format: <nick> <channel>
+Info: This is returned when you successfully INVITE a user to a channel, to inform you that the INVITE was sent.
+Example: $nick $chan
+Numeric: 341
+[346]
+Format: :<channel>
+Info: This is returned for each channel you're currently invited to and can be obtained with the INVITE command without any arguments.
+Example: :$chan
+Numeric: 346
+[347]
+Format: :End of Invite List
+Info: This is returned after the list of channels which you're currently invited to. The list can be obtained with the INVITE command without any arguments.
+Example: :End of Invite List
+Numeric: 347
+[351]
+Format: <version>.<debug> <server> :<info>
+Info: This is returned when you request the VERSION of a server.
+Example: $version. some.server.at.$network.org :B64AeEFfIKMpSU
+Numeric: 351
+[352]
+Format: <channel> <username> <address> <server> <nick> <flags> :<hops> <info>
+Info: This is returned by a WHO request, one line for each user that is matched. The flags will always start with H (here) if the user is not away, or G (gone) if the user is away. This is followed by a * (asterisk) if the user is an IRCop, then a @ or + if the user is opped or voiced on the listed channel.
+Example: $chan $nick if.found.return.to.help.script *.$network.org $nick H@ :3 DDB v5 - $chan servicebot by someone
+Numeric: 352
+[353]
+Format: <*|@|=> <channel> :<names>
+Info: This is returned for a NAMES request for a channel, or when you initially join a channel. It contains a list of every user on the channel. If channel mode p, returns *. If channel mode s, returns @. If neither, returns =.
+Example: = $chan :@$nick @Q +SomeHelper +AsecondHelper cow god
+Numeric: 353
+[354]
+Format: [nick] [channel] [authname] ...
+Info: This is returned for a special WHO request. The command for a special WHO request is: '/WHO match [match-against-flags]%[return-flags]'. 'match' will be matched against the values specified by [match-against-flags]. [return-flags] specifies which columns will be returned.
+Example: $nick $chan $nick
+Numeric: 354
+[355]
+Format: <*|@|=> <channel> :<names>
+Info: Returned when doing /names -d #channel to find out about users hidden by delayed join mode (+d/+D)
+Example: = #tutorial :nick1 nick2 nick3
+Numeric: 355
+[364]
+Format: <server> <hub> :<hobs> <info>
+Info: A series of these are sent in reply to a LINKS request. Remember that each server will be listed once in the 'server' section, but since 'hub' is the server connected to, some servers will be listed multiple times in that column, and some (that are not hubs) will not be listed at all.
+Example: some.server.at.$network.org which.has.this.as.a.hub.$network.org :5 P10 [123.456.789.111] [irc.$network.org] $network
+Numeric: 364
+[365]
+Format: <mask> :End of /LINKS list.
+Info: This is sent at the end of a LINKS list. If you use LINKS with a mask (such as LINKS *.net) then only matching servers are sent, and your mask will be returned in this reply. If you don't use a mask, 'mask' will be a *. (asterisk)
+Example: * :End of /LINKS list.
+Numeric: 365
+[366]
+Format: <channel> :End of /NAMES list.
+Info: This is returned at the end of a NAMES list, after all visible names are returned.
+Example: $chan :End of /NAMES list.
+Numeric: 366
+[367]
+Format: <channel> <ban> <nick> <time>
+Info: A series of these are sent when a channel banlist is requested. (with MODE #chan +b.) (<time> is in ctime format.)
+Example: $chan *!*@*lamer.isp.net Q 902510598
+Numeric: 367
+[368]
+Format: <channel> :End of Channel Ban List.
+Info: This is sent at the end of a channel banlist, when requested. (with MODE #chan +b.)
+Example: $chan :End of Channel Ban List.
+Numeric: 368
+[369]
+Format: <request> :End of WHOWAS
+Info: This is sent at the end of a WHOWAS request.
+Example: $nick :End of WHOWAS
+Numeric: 369
+[371]
+Format: :<info>
+Info: A series of these are sent in reply to an INFO request.
+Example: :This program is free software..... etc. etc. (a lot of server info)
+Numeric: 371
+[372]
+Format: :- <info>
+Info: This is sent in reply to a MOTD request or on connection. In most cases, multiple replies will be sent, one for each line in the MOTD.
+Example: :- This network may NOT be used for:
+Numeric: 372
+[374]
+Format: :End of /INFO list.
+Info: This is sent at the end of an INFO reply.
+Example: :End of /INFO list.
+Numeric: 374
+[375]
+Format: :- <server> Message of the Day -
+Info: This is sent in reply to a MOTD request or on connection, immediately preceding the text for the actual message of the day.
+Example: :- some.server.at.$network.org Message of the Day -
+Numeric: 375
+[376]
+Format: :End of /MOTD command.
+Info: This is sent in reply to a MOTD request or on connection. This should be the last numeric sent in reply, after the text of the message of the day itself.
+Example: :End of /MOTD command.
+Numeric: 376
+[381]
+Format: :You are now an IRC Operator
+Info: This numeric is returned when you successfuly become an IRC operator using the OPER command. This should be preceded by an automatic usermode change that includes +o or +O. (IRC operator)
+Example: :You are now an IRC Operator
+Numeric: 381
+[382]
+Format: <file> :Rehashing
+Info: This numeric is simply returned when you REHASH (reload) the IRCu configuration file.
+Example: ircu.conf :Rehashing
+Numeric: 382
+[384]
+Format: :Cannot kill, kick or deop an IRC operator
+Info: This is returned if you try to kill, kick or deop an IRC operator with USERMODE +k.
+Example: :Cannot kill, kick or deop an IRC operator
+Numeric: 384
+[385]
+Format: :Cannot kill, kick or deop a network service
+Info: This is returned if you try to kill, kick or deop a network service.
+Example: :Cannot kill, kick or deop a network service
+Numeric: 385
+[391]
+Format: <server> :<time>
+Info: This is sent in reply to a TIME request.
+Example: some.server.at.$network.org :Friday August 7 1998 -- 17:26 -04:00
+Numeric: 391
+[396]
+Format: <hidden host> :is now your hidden host
+Info: Returned when successfully setting a hidden host (with usermode +x for example)
+Example: $nick.users.$network.org :is now your hidden host
+Numeric: 396
+[401]
+Format: <nick> :No such nickname
+Info: Sent when you whois/msg/etc a nickname that isn't online
+Example: $nick :No such nickname
+Numeric: 401
+[402]
+Format: <server> :No such server
+Info: Returned when trying to send a command to a server that does not exist. This could be a command such as VERSION which is always sent to a server, or a command such as WHOIS if the request was specifically sent to another server.
+Example: some.server.$network.org :No such server
+Numeric: 402
+[403]
+Format: <channel> :No such channel
+Info: Returned when trying to use a command on a channel that is currently empty. This obviously will never be returned for channels you are in, since they are not empty.
+Example: $chan :No such channel
+Numeric: 403
+[404]
+Format: <channel> :Cannot send to channel
+Info: Returned when you try to send a message to a channel, but the server refuses to let you send the message due to channel MODE settings. When this reply is returned, nothing is seen on the channel to indicate you attempted to say something.
+Example: $chan :Cannot send to channel
+Numeric: 404
+[405]
+Format: <channel> :You have joined too many channels
+Info: Returned if you try to JOIN a channel and you have already reached the maximum number of channels for that server. You will not be able to JOIN any more channels until you PART some of your current channels.
+Example: $chan :You have joined too many channels
+Numeric: 405
+[406]
+Format: <nickname> :There was no such nickname
+Info: Returned if you do a WHOWAS and information on the user cannot be found.
+Example: $nick :There was no such nickname
+Numeric: 406
+[407]
+Format: <target> :Duplicate recipients. No message delivered
+Info: Returned if you send a message using id@server format and there is more than one user that matches the given id@server.
+Example: ident@some.host.com :Duplicate recipients. No message delivered
+Numeric: 407
+[408]
+Format: none
+Info: none
+Example: none
+Numeric: 408
+[409]
+Format: :No origin specified
+Info: Returned if you use PING with no parameters.
+Example: :No origin specified
+Numeric: 409
+[411]
+Format: :No recipient given (<command>)
+Info: Returned when a command (such as PRIVMSG) is used to send a message, but no recipient was given.
+Example: :No recipient given (PRIVMSG)
+Numeric: 411
+[412]
+Format: :No text to send
+Info: Returned when no message is given to send for a PRIVMSG or NOTICE.
+Example: :No text to send
+Numeric: 412
+[413]
+Format: <mask> :No toplevel domain specified
+Info: This error is returned when you try to do a global message using the $ format and you don't specify any toplevel domain.
+Example: $* :No toplevel domain specified
+Numeric: 413
+[414]
+Format: <mask> :Wildcard in toplevel Domain
+Info: This error is returned when you try to do a global message using the $ format and you include wildcards (* or ?) in the toplevel domain.
+Example: $*.* :Wildcard in toplevel Domain
+Numeric: 414
+[416]
+Format: <command> :Too many lines in the output, restrict your query
+Info: This is sent if you use a command that requests too much information to be sent from an $network server. For example, performing WHO 0 (to list all users) will usually result in this error.
+Example: WHO :Too many lines in the output, restrict your query
+Numeric: 416
+[421]
+Format: <command> :Unknown command
+Info: Returned when you use an IRC command that the server does not recognize. And mIRC don't know it either.
+Example: BLAH :Unknown command
+Numeric: 421
+[422]
+Format: :MOTD File is missing
+Info: Returned instead of the Message of the Day if the server does not have a MOTD file.
+Example: :MOTD File is missing
+Numeric: 422
+[423]
+Format: <server> :No administrative info available
+Info: Returned when there is no information to return for an ADMIN request.
+Example: some.server.at.$network.org :No administrative info available
+Numeric: 423
+[431]
+Format: :No nickname given
+Info: Returned when a command (such as WHOIS) is used that requires a nickname, but none given.
+Example: :No nickname given
+Numeric: 431
+[432]
+Format: <nickname> :Erroneus Nickname
+Info: Returned when trying to change your nickname to an invalid nickname. Valid nicknames must contain only letters, numbers, and the characters -_[]{}|`^. The nickname cannot begin with a digit or a hyphen.
+Example: !m00! :Erroneus Nickname
+Numeric: 432
+[433]
+Format: <nickname> :Nickname is already in use.
+Info: Returned when trying to change your nickname to a nickname that someone else is using.
+Example: $nick :Nickname is already in use.
+Numeric: 433
+[436]
+Format: <nickname> :Nickname collision KILL
+Info: Sent when a nickname collision occurs on your nickname. Followed immediately by being disconnected from the server.
+Example: $nick :Nickname collision KILL
+Numeric: 436
+[437]
+Format: <channel> :Cannot change nickname while banned on channel
+Info: Returned when you attempt to change nicknames, but you are banned (MODE +b) on a channel that you are currently in. You must PART the channel before you can change nicknames.
+Example: $chan :Cannot change nickname while banned on channel
+Numeric: 437
+[438]
+Format: <nick> :Nick change too fast. Please wait <sec> seconds.
+Info: This raw is returned by many networks when you try to change nicknames too often, too fast.
+Example: $nick :Nick change too fast. Please wait <sec> seconds.
+Numeric: 438
+[439]
+Format: <target> :Target change too fast. Please wait <sec> seconds.
+Info: This is used on some networks as a way to prevent spammers and other mass-messagers. This is returned when a user tries to message too many different users or join too many different channels in a short period of time.
+Example: $nick :Target change too fast. Please wait 104 seconds.
+Numeric: 439
+[441]
+Format: <nickname> <channel> :They aren't on that channel
+Info: Returned when you attempt to perform a channel-specific operation (such as MODE or KICK) on a user who isn't in the channel.
+Example: $nick $chan :They aren't on that channel
+Numeric: 441
+[442]
+Format: <channel> :You're not on that channel
+Info: Returned when you attempt to perform a channel command on a channel you are not on. Note that not all channel-related commands actually require you to be on the channel.
+Example: $chan :You're not on that channel
+Numeric: 442
+[443]
+Format: <nickname> <channel> :is already on channel
+Info: Returned when inviting a user to a channel that they are already on.
+Example: $nick $chan :is already on channel
+Numeric: 443
+[451]
+Format: <command> :Register first.
+Info: Returned when attempting to use other IRC commands before being fully logged into the IRC server.
+Example: WHOIS :Register first.
+Numeric: 451
+[461]
+Format: <command> :Not enough parameters
+Info: Returned when using a command but not specifying all of the required parameters.
+Example: KICK :Not enough parameters
+Numeric: 461
+[462]
+Format: :You may not reregister
+Info: Returned when attempting to change your user details or other signon information. You must reconnect to reissue these commands.
+Example: :You may not reregister
+Numeric: 462
+[464]
+Format: :Password Incorrect
+Info: Returned when using an incorrect password while connecting to a server
+Example: :Password Incorrect
+Numeric: 464
+[465]
+Format: :You are banned from this server
+Info: Returned when connecting to a server from which you are banned
+Example: :You are banned from this server
+Numeric: 465
+[467]
+Format: <channel> :Channel key already set
+Info: Returned when attempting to set a key on a channel that already has a key set. You must unset the old key (-k) before setting a new key. (+k) This must be done using two seperate MODE commands.
+Example: $chan :Channel key already set
+Numeric: 467
+[471]
+Format: <channel> :Cannot join channel (+l)
+Info: Returned when attempting to JOIN a channel that has already reached it's user limit. A channel can set a user limit by setting a MODE +l with a maximum number of users. Once that many users are in the channel, any other users attempting to JOIN will get this reply.
+Example: $chan :Cannot join channel (+l)
+Numeric: 471
+[472]
+Format: <char> :is unknown mode char to me
+Info: Returned when attempting to change the channel MODE to a mode that does not exist.
+Example: g :is unknown mode char to me
+Numeric: 472
+[473]
+Format: <channel> :Cannot join channel (+i)
+Info: Returned when attempting to JOIN a channel that is INVITE-only (MODE +i) without being invited. A channel is invite-only if a channel op sets a MODE +i. Only a channel op can INVITE a user to an invite-only channel.
+Example: $chan :Cannot join channel (+i)
+Numeric: 473
+[474]
+Format: <channel> :Cannot join channel (+b)
+Info: Returned when attempting to JOIN a channel that you are banned from.
+Example: $chan :Cannot join channel (+b)
+Numeric: 474
+[475]
+Format: <channel> :Cannot join channel (+k)
+Info: Returned when attempting to JOIN a channel that has a key set (MODE +k) when you have not used the proper key.
+Example: $chan :Cannot join channel (+k)
+Numeric: 475
+[477]
+Format: <channel> :Cannot join channel (+r)
+Info: This is returned if you try to join a channel with +r while you aren't authed.
+Example: $chan :Cannot join channel (+r)
+Numeric: 477
+[478]
+Format: <channel> <ban> :Channel ban/ignore list is full
+Info: Returned when attempting to set a ban on a channel that already has a full banlist.
+Example: $chan *!lamer@* :Channel ban/ignore list is full
+Numeric: 478
+[479]
+Format: <channel> :Cannot join channel (access denied on this server)
+Info: This is returned if you try to join a channel which is glined.
+Example: $chan :Cannot join channel (access denied on this server)
+Numeric: 479
+[481]
+Format: :Permission Denied- You're not an IRC operator
+Info: Returned when a non-IRC operator attempts to use a command (such as KILL) that requires IRC operator status.
+Example: :Permission Denied- You're not an IRC operator
+Numeric: 481
+[482]
+Format: <channel> :You're not channel operator
+Info: Returned when attempting to use a command (such as MODE) that requires you to be a channel operator, without first having operator status.
+Example: $chan :You're not channel operator
+Numeric: 482
+[483]
+Format: :You cant kill a server!
+Info: This error is returned if you try to use the KILL command on an IRC server.
+Example: :You cant kill a server!
+Numeric: 483
+[485]
+Format: <nick> <channel> :Cannot kill, kick or deop channel service
+Info: This is returned on $network when you try to kick, deop, or kill Q or L or another service bot.
+Example: Q $chan :Cannot kill, kick or deop channel service
+Numeric: 485
+[489]
+Format: <channel> :You're neither voiced nor channel operator
+Info: Returned when using CNOTICE/CPRIVMSG while non-opped/voiced
+Example: $chan :You're neither voiced nor channel operator
+Numeric: 489
+[491]
+Format: :No O-lines for your host
+Info: Returned when an OPER command is used by a user who is not allowed to be an IRC operator.
+Example: :No O-lines for your host
+Numeric: 491
+[501]
+Format: :Unknown MODE flag
+Info: Returned when setting your own MODE flags, but an unrecognized MODE character is used.
+Example: :Unknown MODE flag
+Numeric: 501
+[502]
+Format: :Cant change mode for other users
+Info: Returned when you attempt to set or view a user's MODE flags, other than your own. Note that this is completely different from channel MODEs that target a user, such as +o and +v.
+Example: :Cant change mode for other users
+Numeric: 502
+[511]
+Format: <mask> :Your silence list is full
+Info: Returned when you attempt to SILENCE a user, but your silence list is full.
+Example: *!*@lamer.isp.com :Your silence list is full
+Numeric: 511
+[512]
+Format: <address> :No such gline
+Info: This is returned when a GLINE list request matches no current G-lines.
+Example: *!*@lamer.isp.com :No such gline
+Numeric: 512
+[admin]
+Numeric: 256, 257, 258, 259, 423
+[away]
+Numeric: 305, 306
+[check]
+Numeric: 291
+[cnotice]
+Numeric: 489
+[command]
+Numeric: 461
+[connect]
+Numeric: 001, 002, 003, 004, 005, 250, 251, 252, 253, 254, 255, 265, 266
+[error]
+Format: ERROR :<message>
+Info: Sent when a connection to server is aborted
+Example: ERROR :Closing Link: $nick[$nick.at.$network.org] by irc.uk.$network.org (Too many connections from your host)
+Numeric: 263, 421, 436, 451, 464, 465, 481
+[gline]
+Numeric: 280, 281, 512
+[info]
+Numeric: 371, 374
+[invite]
+Numeric: 341, 346, 347, 443, 482
+[ison]
+Numeric: 303
+[join]
+Format: JOIN :<channel>
+Info: Sent when someone joins a channel you're in
+Example: JOIN :$chan
+Numeric: 332, 333, 353, 366, 405, 439, 471, 473, 474, 475, 477, 479
+[kick]
+Format: KICK <channel> <nickname> :<reason>
+Info: Sent when someone is kicked from a channel
+Example: KICK $chan $nick :We love you $nick
+Numeric: 403, 441, 482, 485
+[kill]
+Numeric: 384, 385, 483
+[links]
+Numeric: 364, 365
+[list]
+Numeric: 321, 322, 323
+[lusers]
+Numeric: 251, 252, 253, 254, 255, 265, 266
+[mode]
+Format: MODE <channel> <mode ...>
+Info: Sent when someone changes a channel mode
+Example: MODE $chan +b $nick!*@*
+Numeric: 008, 221, 324, 329, 367, 368, 396, 403, 441, 442, 467, 472, 478, 482, 485, 501, 502
+[motd]
+Numeric: 372, 375, 376, 422
+[names]
+Numeric: 353, 355, 366
+[nick]
+Format: NICK :<new nickname>
+Info: Sent when someone changes nickname
+Example: NICK :$nick2
+Numeric: 431, 432, 433, 437, 438
+[none]
+Numeric: 284, 285, 286, 287, 288, 289, 290, 408
+[notice]
+Format: NOTICE <nickame> :<message>
+Info: Sent when someone sends you a message with the NOTICE command
+Example: NOTICE $nick :Hi there!
+Numeric: 401, 403, 404, 407, 411, 412, 413, 414, 439
+[oper]
+Numeric: 381, 491
+[part]
+Format: PART <channel> :<reason>
+Info: Sent when someone leaves a channel you're on
+Example: PART $chan :bye bye
+Numeric: 403, 442
+[ping]
+Format: PING :<number>
+Info: Forces your client to send a line back to the server in order for it to find out wheter or not you're still connected
+Example: PING :4591930
+Numeric: 409
+[privmsg]
+rmat: PRIVMSG <target> :<message>
+Info: Sent when someone writes a message, either to a channel you're on, or directly to you.
+Example: PRIVMSG $nick :Hello World!
+Numeric: 301, 403, 404, 407, 411, 412, 413, 414, 439
+[quit]
+Format: QUIT :<reason>
+Info: Sent when someone leaves the server
+Example: QUIT :Read error: EOF from client
+[rehash]
+Numeric: 382
+[server]
+Numeric: 402
+[silence]
+Numeric: 271, 272, 511
+[stats]
+Numeric: 211, 212, 213, 214, 215, 216, 217, 218, 219, 223, 243, 244, 247, 248, 249, 250
+[time]
+Numeric: 391
+[topic]
+Format: TOPIC <channel> :<new topic>
+Info: Sent when someone changes the topic in a channel you're on
+Example: TOPIC $chan :Welcome to the scripting support channel
+Numeric: 331, 332, 333, 403, 442, 482
+[user]
+Numeric: 462
+[userhost]
+Numeric: 302
+[userip]
+Numeric: 340
+[version]
+Numeric: 351
+[who]
+Numeric: 315, 352, 354, 416
+[whois]
+Numeric: 301, 312, 313, 317, 318, 319, 330, 338, 431
+[whowas]
+Numeric: 301, 314, 369, 406, 431
